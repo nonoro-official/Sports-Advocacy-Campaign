@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Buddy - Fun Exercise!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="nav-item active" onclick="showSection('home')">
+                <div class="nav-icon"></div>
+                <div class="nav-label">Exercise!</div>
+            </div>
+            <div class="nav-item" onclick="showSection('facts')">
+                <div class="nav-icon"></div>
+                <div class="nav-label">Fun facts</div>
+            </div>
+            <div class="nav-item" onclick="showSection('resources')">
+                <div class="nav-icon"></div>
+                <div class="nav-label">Resources</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Home/Title Section -->
+            <div id="home" class="content-section active">
+                <div class="window">
+                    <div class="window-header">
+                        <div class="window-dot"></div>
+                        <div class="window-dot"></div>
+                        <div class="window-dot"></div>
+                    </div>
+                    <div class="window-content">
+                        <div id="titlePage" class="title-page">
+                            <h1>TITLE</h1>
+                        </div>
+
+                        <div id="companionPage" class="companion-selection" style="display: none;">
+                            <div class="companions-display">
+                                <div class="companion companion-cat" onclick="selectCompanion(0, 'cat')">
+                                    <img src="images/kitty.png" alt="Kitty" style="width:100%">
+                                </div>
+
+                                <div class="companion companion-rabbit" onclick="selectCompanion(1, 'rabbit')">
+                                    <img src="images/bunny.png" alt="Bunny" style="width:100%">
+                                </div>
+
+                                <div class="companion companion-bear" onclick="selectCompanion(2, 'bear')">
+                                    <img src="images/bear.png" alt="Bear" style="width:100%">
+                                </div>
+                            </div>
+                            <div class="selection-text">Pick a companion to exercise with!</div>
+                        </div>
+
+                        <div id="exercisePage" class="exercise-display" style="display: none;">
+                            <div class="speech-bubble">
+                                <span id="exerciseText">Jump with me!</span>
+                            </div>
+                            <div class="exercise-companion-display">
+                                <div id="selectedCompanionDisplay"></div>
+                            </div>
+                            <button class="generate-button" onclick="generateExercise()">Generate number</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fun Facts Section -->
+            <div id="facts" class="content-section">
+                <div class="window">
+                    <div class="window-header">
+                        <div class="window-dot"></div>
+                        <div class="window-dot"></div>
+                        <div class="window-dot"></div>
+                        <!-- Benefit Type Tabs -->
+                        <div class="benefit-tabs">
+                            <button class="benefit-tab active" onclick="switchBenefitTab('physical', this)">Physical</button>
+                            <button class="benefit-tab" onclick="switchBenefitTab('mental', this)">Mental</button>
+                            <button class="benefit-tab" onclick="switchBenefitTab('social', this)">Social</button>
+                        </div>
+
+                    </div>
+                    <div class="window-content">
+                        <!-- Specific Benefit Buttons -->
+                        <div class="specific-benefits-section">
+                            <div id="physical-benefits" class="specific-benefits active">
+                                <button class="specific-benefit-btn active" onclick="showBenefitInfo('bone')">Bone</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('muscle')">Muscle</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('weight')">Weight</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('heart')">Heart</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('energy')">Energy</button>
+                            </div>
+
+                            <div id="mental-benefits" class="specific-benefits">
+                                <button class="specific-benefit-btn active" onclick="showBenefitInfo('mood')">Mood</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('stress')">Stress</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('sleep')">Sleep</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('focus')">Focus</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('confidence')">Confidence</button>
+                            </div>
+
+                            <div id="social-benefits" class="specific-benefits">
+                                <button class="specific-benefit-btn active" onclick="showBenefitInfo('teamwork')">Teamwork</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('communication')">Communication</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('friendship')">Friendship</button>
+                                <button class="specific-benefit-btn" onclick="showBenefitInfo('motivation')">Motivation</button>
+                            </div>
+                        </div>
+
+                        <!-- Info Display Area -->
+                        <div class="benefit-info-display">
+                            <div class="demo-section">
+                                <div class="demo-placeholder"></div>
+                                <p>mascot demonstrating</p>
+                            </div>
+
+                            <div class="benefit-info-content">
+                                <h3 id="benefitTitle">Bone Health</h3>
+                                <p id="benefitDescription">Regular exercise helps build and maintain strong bones! Weight-bearing exercises like jumping, running, and dancing increase bone density and reduce the risk of osteoporosis as you age.</p>
+                            </div>
+
+                            <div class="mascots-talking-section">
+                                <div class="mascots-row">
+                                    <img src="images/bunny-head.png" alt="Bunny" style="width:20%">
+
+                                    <img src="images/kitty-head.png" alt="Kitty" style="width:20%">
+                                </div>
+                                <p class="talking-label">mascots talking here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Section -->
+            <div id="resources" class="content-section">
+                <div class="window">
+                    <div class="window-header">
+                        <div class="window-dot"></div>
+                        <div class="window-dot"></div>
+                        <div class="window-dot"></div>
+                    </div>
+                    <div class="window-content">
+                        <h2 style="margin-bottom: 30px; color: #333;">Helpful Resources</h2>
+                        
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <h3>🏃‍♂️ Getting Started</h3>
+                                <p>New to exercise? Start with just 10 minutes a day and gradually increase. Remember, any movement is better than none!</p>
+                            </div>
+
+                            <div class="resource-card">
+                                <h3>🧘‍♀️ Stretching Guide</h3>
+                                <p>Always warm up before exercising and cool down after. Stretching helps prevent injuries and improves flexibility.</p>
+                            </div>
+
+                            <div class="resource-card">
+                                <h3>💧 Stay Hydrated</h3>
+                                <p>Drink water before, during, and after your workout. Proper hydration is key to peak performance!</p>
+                            </div>
+
+                            <div class="resource-card">
+                                <h3>🍎 Nutrition Tips</h3>
+                                <p>Fuel your body with healthy foods. A balanced diet supports your fitness goals and overall health.</p>
+                            </div>
+
+                            <div class="resource-card">
+                                <h3>😴 Rest & Recovery</h3>
+                                <p>Your body needs time to recover. Make sure to get enough sleep and take rest days when needed.</p>
+                            </div>
+
+                            <div class="resource-card">
+                                <h3>👥 Find a Buddy</h3>
+                                <p>Exercise with friends or family! Having a workout partner makes exercise more fun and keeps you motivated.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

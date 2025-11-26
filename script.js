@@ -135,17 +135,28 @@ function selectCompanion(index, type) {
     selectedCompanion = { index, type };
 
     setTimeout(() => {
-        const img = companions[index].querySelector('img').cloneNode(true);
-        img.style.width = '180px';
-        img.style.height = '200px';
+    const img = companions[index].querySelector('img').cloneNode(true);
 
-        const container = document.getElementById('selectedCompanionDisplay');
-        container.innerHTML = '';
-        container.appendChild(img);
+    // Change image based on type
+    if (type === 'cat') {
+        img.src = 'images/kitty.png';
+    } else if (type === 'rabbit') {
+        img.src = 'images/bunny.png';
+    } else if (type === 'bear') {
+        img.src = 'images/bear.png';
+    }
 
-        showHomePage('exercise');
-        generateExercise();
-    }, 500);
+    img.style.width = '180px';
+    img.style.height = '200px';
+
+    const container = document.getElementById('selectedCompanionDisplay');
+    container.innerHTML = '';
+    container.appendChild(img);
+
+    showHomePage('exercise');
+    generateExercise();
+}, 500);
+
 }
 
 function generateExercise() {

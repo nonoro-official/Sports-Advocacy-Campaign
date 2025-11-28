@@ -102,30 +102,30 @@ function showSection(sectionId) {
     document.getElementById(sectionId).classList.add('active');
     element.closest('.nav-item').classList.add('active');
 
-    // Reset to title page when going back to home
-    if (sectionId === 'home') {
-        showHomePage('title');
-    }
+    // // Reset to title page when going back to home
+    // if (sectionId === 'home') {
+    //     showHomePage('title');
+    // }
 }
 
-function showHomePage(page) {
-    document.getElementById('titlePage').style.display = 'none';
-    document.getElementById('companionPage').style.display = 'none';
-    document.getElementById('exercisePage').style.display = 'none';
+// function showHomePage(page) {
+//     document.getElementById('titlePage').style.display = 'none';
+//     document.getElementById('companionPage').style.display = 'none';
+//     document.getElementById('exercisePage').style.display = 'none';
 
-    if (page === 'title') {
-        document.getElementById('titlePage').style.display = 'block';
-        setTimeout(() => {
-            showHomePage('companion');
-        }, 2000);
-    } else if (page === 'companion') {
-        document.getElementById('companionPage').style.display = 'block';
-    } else if (page === 'exercise') {
-        document.getElementById('exercisePage').style.display = 'block';
-    }
+//     if (page === 'title') {
+//         document.getElementById('titlePage').style.display = 'block';
+//         setTimeout(() => {
+//             showHomePage('companion');
+//         }, 2000);
+//     } else if (page === 'companion') {
+//         document.getElementById('companionPage').style.display = 'block';
+//     } else if (page === 'exercise') {
+//         document.getElementById('exercisePage').style.display = 'block';
+//     }
 
-    currentPage = page;
-}
+//     currentPage = page;
+// }
 
 function selectCompanion(index, type) {
     const companions = document.querySelectorAll('.companion');
@@ -153,7 +153,7 @@ function selectCompanion(index, type) {
     container.innerHTML = '';
     container.appendChild(img);
 
-    showHomePage('exercise');
+    // showHomePage('exercise');
     generateExercise();
 }, 500);
 
